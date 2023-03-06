@@ -100,14 +100,17 @@
 .similar {
     &__title {
         font-weight: 600;
-        @include adaptive-value(font-size,22,16,1);
-        @include adaptive-value(line-height,33,24,1);
-        @include adaptive-value(padding-bottom,33,24,1);
+        @include adaptive-value(font-size, 22, 16, 1);
+        @include adaptive-value(line-height, 33, 24, 1);
+        @include adaptive-value(padding-bottom, 33, 24, 1);
     }
-    &__card{
+    &__card {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
         padding-bottom: 70px;
+        @media (max-width: 960px) {
+            justify-content: center;
+        }
     }
 }

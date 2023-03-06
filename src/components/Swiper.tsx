@@ -22,11 +22,13 @@ export const MainSwiper: FC<IPropsArr> = ({ data }) => {
                 modules={[Parallax, Pagination, Navigation]}
                 className='mySwiper'
             >
-                {data?.slice(0,4).map((item) => (
-                    <SwiperSlide>
+                {data?.slice(0, 4).map((item) => (
+                    <SwiperSlide key={item.id}>
                         <div className='swiper-body'>
                             <div className='swiper-body_name'>
-                                <p className='swiper-body_title'>{shortTitletwo(item.name_uz)}</p>
+                                <p className='swiper-body_title'>
+                                    {shortTitletwo(item.name_uz)}
+                                </p>
                                 <p className='swiper-body_text'>
                                     {shortTitle(item.description_uz)}
                                 </p>
@@ -43,12 +45,7 @@ export const MainSwiper: FC<IPropsArr> = ({ data }) => {
                                 <span className='swiper-body_data'>0-0-12</span>
                             </div>
                             <div className='swiper-body_img'>
-                                <img
-                                    src={
-                                       item.images[0]
-                                    }
-                                    alt='/'
-                                />
+                                <img src={item.images[0]} alt='/' />
                             </div>
                         </div>
                     </SwiperSlide>

@@ -6,10 +6,10 @@ import { categoryBrandsI } from "../pages/types";
 
 interface propsI {
     data: categoryBrandsI[] | undefined;
-    count:number |undefined
+    count: number | undefined;
 }
 
-export const CategoryTopSide: FC<propsI> = ({ data,count }) => {
+export const CategoryTopSide: FC<propsI> = ({ data, count }) => {
     const { language } = useContext(LanguageContext);
     const translate = useLanguage();
     const location = useLocation();
@@ -22,11 +22,12 @@ export const CategoryTopSide: FC<propsI> = ({ data,count }) => {
                 </p>
             </div>
             <div className='category-top__name'>
-                <p>{location.pathname.split('/')[2]}</p> <span>{count} товаров</span>
+                <p>{location.pathname.split("/")[2]}</p>{" "}
+                <span>{count} товаров</span>
             </div>
             <div className='category-top__brand'>
                 {data?.map((item) => (
-                    <span>
+                    <span key={item.id}>
                         {language === "uz" ? item.name_uz : item.name_ru}
                     </span>
                 ))}

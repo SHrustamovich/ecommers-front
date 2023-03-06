@@ -28,7 +28,7 @@ export const GlabalCard: FC<dataI> = ({ data, loading }) => {
             ) : (
                 <div className='glabal-cards container'>
                     {data?.map((item) => (
-                        <NavLink to={`/product/${item.slug}`}>
+                        <NavLink to={`/product/${item.slug}`} key={item.id}>
                             <div className='glabal-card' key={item.id}>
                                 <div className='glabal-card__img'>
                                     <img src={item.images[0]} alt='/' />

@@ -12,6 +12,7 @@ import {
     MenuIcon,
     OrderIcon,
 } from "../../assets/icons/icons";
+import { useCardContext } from "../../context/KarzinkaContext";
 
 export const Header: FC = () => {
     const translate = useLanguage();
@@ -24,6 +25,8 @@ export const Header: FC = () => {
     const onClose = () => {
         setOpen(false);
     };
+
+    const { cardData } = useCardContext();
 
     return (
         <div className='header'>
@@ -57,9 +60,9 @@ export const Header: FC = () => {
                     </span>
                 </Link>
                 <Link to='/karzinka' className='header-allIcon'>
-                    <div className="karzin">
-                        <span>{1}</span>
-                    <KarzinkaIcon />
+                    <div className='karzin'>
+                        <span>{cardData.length}</span>
+                        <KarzinkaIcon />
                     </div>
                     <span className='header-allIcon_text'>
                         {translate("karzinka")}

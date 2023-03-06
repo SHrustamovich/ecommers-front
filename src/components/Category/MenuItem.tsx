@@ -26,8 +26,8 @@ export const MenuItem: FC<MenuItemProps> = ({ menuData, closeDriver }) => {
     };
 
     const menuClick = () => {
-        closeDriver()
-    }
+        closeDriver();
+    };
     return (
         <div className='menu'>
             <div className='menu__header'>
@@ -40,7 +40,11 @@ export const MenuItem: FC<MenuItemProps> = ({ menuData, closeDriver }) => {
             </div>
             <div ref={option} className={`menu__options ${open ? "open" : ""}`}>
                 {menuData.children.map((el) => (
-                    <NavLink onClick={menuClick} to={`/category/${el.slug}`}>
+                    <NavLink
+                        onClick={menuClick}
+                        to={`/category/${el.slug}`}
+                        key={el.id}
+                    >
                         <div className='menu__item'>{el.name_uz}</div>
                     </NavLink>
                 ))}

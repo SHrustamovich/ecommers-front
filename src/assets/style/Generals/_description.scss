@@ -1,6 +1,10 @@
 .description {
     display: flex;
-    padding-top: 100px;
+    @include adaptive-value(padding-top, 100, 20, 1);
+    @media (max-width: 567px) {
+        flex-direction: column;
+        gap: 25px;
+    }
     &__text {
         h4 {
             font-weight: 600;
@@ -39,8 +43,8 @@
     }
     button {
         font-weight: 400;
-        @include adaptive-value(font-size,14,12,1);
-        @include adaptive-value(line-height,21,16,1);
+        @include adaptive-value(font-size, 14, 12, 1);
+        @include adaptive-value(line-height, 21, 16, 1);
         cursor: pointer;
         text-decoration-line: underline;
         background: #f8f8f8;

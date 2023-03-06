@@ -15,7 +15,6 @@ const MenuBar: React.FC<MenuPropsI> = ({ open, onClose }) => {
     const CategoryRequest = useLoad<allCategoryI>({ url: categoryList });
     const { loading, response } = CategoryRequest;
 
-
     const closeDriver = () => {
         onClose();
     };
@@ -30,7 +29,11 @@ const MenuBar: React.FC<MenuPropsI> = ({ open, onClose }) => {
     return (
         <Drawer placement='left' onClose={onClose} open={open}>
             {response?.categories.map((item) => (
-                <MenuItem menuData={item} closeDriver={closeDriver} />
+                <MenuItem
+                    menuData={item}
+                    closeDriver={closeDriver}
+                    key={item.id}
+                />
             ))}
 
             {/* <div className='menu'>

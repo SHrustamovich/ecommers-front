@@ -1,44 +1,76 @@
 import { FC } from "react";
 import { ErrorIcon } from "../assets/icons/icons";
-import { CardContext } from "../context/KarzinkaContext";
-// import { useCardContext } from "../context/KarzinkaContext";
+import { useCardContext } from "../context/KarzinkaContext";
 import useLanguage from "../hooks/useLanguage";
-import { productList } from "../utilts/data";
+import { shortTitle } from "../utilts/helpers";
 
 export const KarzinkaCard: FC = () => {
     const translate = useLanguage();
 
-    const { cardData, setCardData } = CardContext()
+    const { cardData, incrateQuantity, decrateQuantity, removeItem } =
+        useCardContext();
 
-//     const {
-//         cardData
-//     } = useCardContext();
-// console.log(cardData)
-    const quantity = 0;
+    let all = 0;
+    cardData.map((item) => {
+        all += item.quantity * Number(item.price);
+    });
+    console.log(all);
+
+    const handlyRemove = (id: number) => {
+        decrateQuantity(id);
+    };
+
+    const handlyAdd = (id: number) => {
+        incrateQuantity(id);
+    };
+
+    const removeItemBtn = (id: number) => {
+        removeItem(id);
+    };
+
     return (
         <div className='karzinka-main'>
             <div className='karzinka-cards'>
-                {productList.slice(0, 2).map((item) => (
-                    <div className='karzinka-card'>
-                        <button className='karzinka-card__btn'>x</button>
+                <div className='karzinka-page__total'>
+                    {translate("kprod")} - {cardData.length}
+                </div>
+                {cardData.map((item) => (
+                    <div className='karzinka-card' key={item.id}>
+                        <button
+                            className='karzinka-card__btn'
+                            onClick={() => removeItemBtn(item.id)}
+                        >
+                            x
+                        </button>
                         <div className='karzinka-card__img'>
-                            <img src={item.image} alt={item.name} />
+                            <img
+                                src={item.image}
+                                alt={shortTitle(item.name_uz)}
+                            />
                         </div>
                         <div className='karzinka-card__info'>
-                            <p className='karzinka-card__name'>{item.name}</p>
+                            <p className='karzinka-card__name'>
+                                {shortTitle(item.name_uz)}
+                            </p>
                             <div className='karzinka-card__counter'>
-                                <button>-</button>
-                                <span>{quantity}</span>
-                                <button>+</button>
+                                <button onClick={() => handlyRemove(item.id)}>
+                                    -
+                                </button>
+                                <span>{item.quantity}</span>
+                                <button onClick={() => handlyAdd(item.id)}>
+                                    +
+                                </button>
                             </div>
                             <div className='karzinka-card__price'>
                                 <div>
                                     <p>{translate("price")}:</p>
-                                    <span>{item.price}</span>
+                                    <span>
+                                        {Number(item.price) * item.quantity}
+                                    </span>
                                 </div>
                                 <div>
                                     <p>{translate("dprice")}:</p>
-                                    <span>{item.price}</span>
+                                    <span>100000</span>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +80,7 @@ export const KarzinkaCard: FC = () => {
             <div className='orderCard'>
                 <div className='orderCard__title'>
                     <p>{translate("total")}:</p>
-                    <span>123</span>
+                    <span>{all}</span>
                 </div>
                 <div className='orderCard__info'>
                     <div>
@@ -57,11 +89,11 @@ export const KarzinkaCard: FC = () => {
                     </div>
                     <div>
                         <p>{translate("dprice")}:</p>
-                        <span>123</span>
+                        <span>{cardData.length * 1000}</span>
                     </div>
                     <div>
                         <p>{translate("pprice")}:</p>
-                        <span>123</span>
+                        <span>{65490}</span>
                     </div>
                     <div>
                         <p>{translate("del")}:</p>

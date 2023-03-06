@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Arrow } from "../assets/icons/icons";
 import { Footer } from "../components/Footer";
@@ -35,15 +35,19 @@ export const Root: FC = () => {
     };
     return (
         <div className='root'>
-            <button id="topBtn" className='scroolToTop__btn' onClick={scroolTop}>
+            <button
+                id='topBtn'
+                className='scroolToTop__btn'
+                onClick={scroolTop}
+            >
                 <Arrow />
             </button>
             <TopSide />
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/category/:slug' element={<CategoryPages />} />
-                <Route path="/product/:slug" element = {<PersanalPage/>}/>
-                <Route path="/karzinka" element = {<KarzinkaPage/>}/>
+                <Route path='/product/:slug' element={<PersanalPage />} />
+                <Route path='/karzinka' element={<KarzinkaPage />} />
             </Routes>
             <Footer />
         </div>

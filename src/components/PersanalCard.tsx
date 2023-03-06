@@ -6,7 +6,7 @@ import { brandList, productList, sizeData } from "../utilts/data";
 import useLanguage from "../hooks/useLanguage";
 import { Delivery, Return, Sett } from "../assets/icons/icons";
 import { cardI } from "./Card/types";
-// import { useCardContext } from "../context/KarzinkaContext";
+import { CartItem, useCardContext } from "../context/KarzinkaContext";
 // import  { CardContext } from "../context/KarzinkaContext";
 
 interface IProps {
@@ -20,20 +20,21 @@ export const PersanalCard: FC<IProps> = ({ data }) => {
     // const { cardData, setCardData } = useContext(CardContext);
 
     // console.log(cardData)
-   
-    // const {
-    //     getItemQuentity,
-    //     increaseCardQuentity,
-    //     decreaseCardQuentity,
-    //     removeFromCard,
-    // } = useCardContext();
 
-    const handlyBtn = () => {
+    const { getData } = useCardContext();
 
-        // if (data) {
-        //     increaseCardQuentity(data.id);
-        // }    
-}
+    const handlyBtn = (data: CartItem | undefined) => {
+        if (data) {
+            getData({
+                id: data.id,
+                image: data.image,
+                name_uz: data.name_uz,
+                name_ru: data.name_ru,
+                price: data.price,
+            });
+        }
+        alert(`${data?.name_uz} maxsulot qo'shildi`);
+    };
 
     return (
         <>
@@ -75,63 +76,66 @@ export const PersanalCard: FC<IProps> = ({ data }) => {
                         ))}
                     </Swiper>
                 </div>
-                <div className='persanal__info'>
-                    <div className='persanal__color'>
-                        <span>{translate("color")}:</span>
-                        {data?.images.map((item) => (
-                            <div className='persanal__image' key={1}>
-                                <img src={item} alt='/' />
-                            </div>
-                        ))}
-                    </div>
-                    <div className='persanal__tur'>
-                        {translate("comp")}:<span>Легкая сетка, тонкая</span>
-                    </div>
-                    <div className='persanal__size'>
-                        {translate("size")}:
-                        <select name='select' id=''>
-                            {sizeData.map((item) => (
-                                <option value={item}>{item}</option>
+                <div className='persanal__allInfo'>
+                    <div className='persanal__info'>
+                        <div className='persanal__color'>
+                            <span>{translate("color")}:</span>
+                            {data?.images.map((item) => (
+                                <div className='persanal__image' key={item}>
+                                    <img src={item} alt='/' />
+                                </div>
                             ))}
-                        </select>
+                        </div>
+                        <div className='persanal__tur'>
+                            {translate("comp")}:
+                            <span>Легкая сетка, тонкая</span>
+                        </div>
+                        <div className='persanal__size'>
+                            {translate("size")}:
+                            <select name='select' id=''>
+                                {sizeData.map((item) => (
+                                    <option value={item} key={item}>
+                                        {item}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className='persanal__del'>
+                            <Delivery />
+                            <p>{translate("deliver")}</p>
+                        </div>
+                        <div className='persanal__del'>
+                            <Sett />
+                            <p>{translate("set")}</p>
+                        </div>
+                        <div className='persanal__del'>
+                            <Return />
+                            <p>{translate("return")}</p>
+                        </div>
+                        <p className='persanal__brand'>{translate("brand")}</p>
+                        <div className='persanal__brand__img'>
+                            <img src={data?.brand.image} alt='' />
+                        </div>
+                        <p className='persanal__price'>
+                            {data?.price} {translate("sum")}
+                        </p>
+                        <div className='persanal__btn'>
+                            <button onClick={() => handlyBtn(data)}>
+                                {translate("karzinka")}
+                            </button>
+                        </div>
                     </div>
-                    <div className='persanal__del'>
-                        <Delivery />
-                        <p>{translate("deliver")}</p>
+                    <div className='persanal__plan plan'>
+                        <p className='plan__title'>0% {translate("payment")}</p>
+                        <span className='plan__price'>
+                            {Number(data?.price) / 4} UZS x4
+                        </span>
+                        <p className='plan__text'>
+                            Быстро доставим любой Ваш заказ по всему
+                            Узбекистану! Срок доставки от 1 до 2х рабочих дней!
+                            Стоимость доставки: 30 000 сум!
+                        </p>
                     </div>
-                    <div className='persanal__del'>
-                        <Sett />
-                        <p>{translate("set")}</p>
-                    </div>
-                    <div className='persanal__del'>
-                        <Return />
-                        <p>{translate("return")}</p>
-                    </div>
-                    <p className='persanal__brand'>{translate("brand")}</p>
-                    <div className='persanal__brand__img'>
-                        <img src={data?.brand.image} alt='' />
-                    </div>
-                    <p className='persanal__price'>
-                        {data?.price} {translate("sum")}
-                    </p>
-                    <div className='persanal__btn'>
-                        <button
-                            onClick={handlyBtn}
-                        >
-                            {translate("karzinka")}
-                        </button>
-                    </div>
-                </div>
-                <div className='persanal__plan plan'>
-                    <p className='plan__title'>0% {translate("payment")}</p>
-                    <span className='plan__price'>
-                        {Number(data?.price) / 4} UZS x4
-                    </span>
-                    <p className='plan__text'>
-                        Быстро доставим любой Ваш заказ по всему Узбекистану!
-                        Срок доставки от 1 до 2х рабочих дней! Стоимость
-                        доставки: 30 000 сум!
-                    </p>
                 </div>
             </div>
             <div className='description'>
