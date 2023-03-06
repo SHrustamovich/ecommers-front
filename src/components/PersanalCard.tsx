@@ -17,10 +17,6 @@ export const PersanalCard: FC<IProps> = ({ data }) => {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     const translate = useLanguage();
 
-    // const { cardData, setCardData } = useContext(CardContext);
-
-    // console.log(cardData)
-
     const { getData } = useCardContext();
 
     const handlyBtn = (data: CartItem | undefined) => {

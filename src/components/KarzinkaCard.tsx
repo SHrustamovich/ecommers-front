@@ -14,7 +14,6 @@ export const KarzinkaCard: FC = () => {
     cardData.map((item) => {
         all += item.quantity * Number(item.price);
     });
-    console.log(all);
 
     const handlyRemove = (id: number) => {
         decrateQuantity(id);
