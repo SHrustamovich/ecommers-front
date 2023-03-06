@@ -1,0 +1,109 @@
+:root {
+    --swiper-navigation-size: 10px;
+}
+:root {
+    --swiper-theme-color: #1f2b57;
+}
+.swiper {
+    max-width: 100%;
+    height: 100%;
+    background: #4c5795;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    @include adaptive-value(padding-inline, 40, 30, 1);
+    @include adaptive-value(padding-block, 60, 40, 1);
+    @media (max-width:567px) {
+        @include adaptive-value(padding-inline, 40, 8, 1);
+        @include adaptive-value(padding-block, 60, 10, 1);
+    }
+}
+.swiper-button-next,
+.swiper-button-prev {
+    width: 35px;
+    height: 35px;
+    background: #ccc;
+    border-radius: 50%;
+    @media (max-width:567px) {
+        display: none;
+    }
+}
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active {
+    width: 38px;
+    background: #1f2b57;
+    border-radius: 10px;
+}
+.swiper-body {
+    display: flex;
+    justify-content: space-between;
+    @include adaptive-value(padding-inline, 25, 10, 1);
+    @include adaptive-value(padding-block, 45, 20, 1);
+    align-items: center;
+    // @media (max-width:960px) {
+    //     flex-direction: column-reverse;
+    // }
+    &_title {
+        font-weight: 700;
+        @include adaptive-value(font-size, 36, 20, 1);
+        @include adaptive-value(line-height, 54, 24, 1);
+    }
+    &_text {
+        font-weight: 400;
+        @include adaptive-value(font-size, 36, 20, 1);
+        @include adaptive-value(line-height, 54, 24, 1);
+        @include adaptive-value(padding-bottom, 9, 4, 1);
+    }
+    &_btn {
+        background: #ffffff;
+        border-radius: 0px 20px 0px 0px;
+        @include adaptive-value(padding-inline, 49, 18, 1);
+        @include adaptive-value(padding-block, 5, 3, 1);
+        font-weight: 400;
+        @include adaptive-value(font-size, 24, 14, 1);
+        @include adaptive-value(line-height, 36, 20, 1);
+        color: #000;
+        cursor: pointer;
+    }
+    &_info {
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value(padding-right, 5, 3, 1);
+    }
+    &_data {
+        font-weight: 400;
+        @include adaptive-value(font-size, 22, 14, 1);
+        @include adaptive-value(line-height, 33, 20, 1);
+        @media (max-width:960px) {
+            display: none;
+        }
+    }
+    &_img {
+        width: 418px;
+        height: 258px;
+        align-items: center;
+        @media (max-width:960px) {
+            width: 318px;
+            height: 180px;
+        }
+        @media (max-width:567px) {
+            width: 268px;
+            height: 140px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

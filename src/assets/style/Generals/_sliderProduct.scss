@@ -1,0 +1,185 @@
+.persanal-card {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: space-between;
+    // flex-direction: row;
+}
+.persanal__slider {
+    display: flex;
+    flex-direction: row;
+}
+.mySwiperTwo {
+    background: none;
+    box-shadow: none;
+}
+.mySwiperOne {
+    width: 60px;
+    height: 55px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0%;
+    margin-right: 35px !important;
+    padding: 0% !important;
+}
+
+.mySwiper__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.mySwiper__item {
+    padding: 0;
+    width: 60px;
+    height: 60px !important;
+    border-radius: 50% !important;
+}
+
+.mySwiperTwo {
+    width: 440px;
+    height: 490px;
+    padding: 0%;
+    border-radius: 10px;
+    background: #ebebeb;
+    overflow: hidden;
+}
+
+.mySwiperOne {
+    box-sizing: border-box;
+    // width: 300px;
+    height: 450px;
+}
+
+.mySwiperOne .swiper-slide {
+    opacity: 0.4;
+}
+
+.mySwiperOne .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.mySwiperTwo__item img {
+    padding-inline: 0;
+    padding-block: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper,
+swiper-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+.persanal__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.persanal__color {
+    display: flex;
+    gap: 10px;
+    span {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+.persanal__image {
+    width: 61px;
+    height: 48px;
+    background: #ebebeb;
+    border-radius: 10px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.persanal__tur {
+    span {
+        padding-left: 5px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: #868686;
+    }
+}
+.persanal__size {
+    display: flex;
+    gap: 13px;
+    select {
+        background: #ebebeb;
+        border-radius: 10px;
+        padding-inline: 13px;
+        padding-block: 3px;
+        cursor: pointer;
+    }
+}
+.persanal__del {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+.persanal__brand {
+    &__img {
+        width: 74px;
+        height: 57px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.persanal__price {
+    font-weight: 700;
+    @include adaptive-value(font-size, 32, 18, 1);
+    @include adaptive-value(line-height, 48, 24, 1);
+}
+.persanal__btn {
+    button {
+        background: #27376f;
+        border-radius: 10px;
+        cursor: pointer;
+        @include adaptive-value(padding-block, 10, 6, 1);
+        @include adaptive-value(padding-inline, 56, 32, 1);
+        font-weight: 600;
+        @include adaptive-value(font-size, 16, 8, 1);
+        @include adaptive-value(line-height, 24, 12, 1);
+        color: #fff;
+    }
+}
+.persanal__plan {
+    text-align: center;
+    background: #f0f0f0;
+    border-radius: 10px;
+    @include adaptive-value(padding-block, 59, 24, 1);
+    @include adaptive-value(padding-inline, 20, 12, 1);
+    height: 100%;
+    max-width: 350px;
+}
+.plan {
+    &__title {
+        font-weight: 500;
+        @include adaptive-value(font-size, 24, 18, 1);
+        @include adaptive-value(line-height, 36, 28, 1);
+    }
+    &__price {
+        font-weight: 500;
+        @include adaptive-value(font-size, 26, 22, 1);
+        @include adaptive-value(line-height, 39, 28, 1);
+    }
+    &__text {
+        font-weight: 500;
+        @include adaptive-value(font-size, 14, 12, 1);
+        @include adaptive-value(line-height, 21, 16, 1);
+        color: #6B6B6B;
+    }
+}

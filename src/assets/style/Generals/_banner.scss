@@ -1,0 +1,18 @@
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width:960px) {
+        display: none;
+    }
+    @include adaptive-value(padding-bottom,188,102,1);
+    &-img{
+        width: 430px;
+        height: 288px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

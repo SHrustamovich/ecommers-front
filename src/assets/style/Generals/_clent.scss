@@ -1,0 +1,113 @@
+.clent {
+    padding-top: 40px;
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    p {
+        font-weight: 600;
+        @include adaptive-value(font-size, 22, 16, 1);
+        @include adaptive-value(line-height, 33, 22, 1);
+    }
+    span {
+        font-weight: 400;
+        @include adaptive-value(font-size, 10, 8, 1);
+        @include adaptive-value(line-height, 15, 10, 1);
+    }
+    &__slider {
+        @include adaptive-value(padding-top, 32, 16, 1);
+        @include adaptive-value(padding-bottom, 64, 32, 1);
+        &__item {
+            padding: 16px !important;
+            background: #f0f0f0;
+            border-radius: 10px;
+            color: #000;
+        }
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        p {
+            font-weight: 400;
+            @include adaptive-value(font-size, 14, 12, 1);
+            @include adaptive-value(line-height, 21, 16, 1);
+            padding-left: 16px;
+        }
+        span {
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 15px;
+            color: #929090;
+            @include adaptive-value(padding-left, 129, 90, 1);
+        }
+    }
+    &__avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__star {
+        padding-top: 16px;
+    }
+    &__images {
+        display: flex;
+        gap: 16px;
+        padding-top: 20px;
+    }
+    &__image {
+        width: 55px;
+        height: 55px;
+        background: #ebebeb;
+        border: 0.5px solid #c8c8c8;
+        border-radius: 10px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__text {
+        padding-top: 16px;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+    }
+    &-btn {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 20px;
+        padding-top: 46px;
+        button {
+            cursor: pointer;
+        }
+    }
+}
+.mySwiperClent {
+    background: #fff;
+    background: #f8f8f8;
+    border-radius: 10px;
+    gap: 28px;
+    box-shadow: none;
+}
+
+.similar {
+    &__title {
+        font-weight: 600;
+        @include adaptive-value(font-size,22,16,1);
+        @include adaptive-value(line-height,33,24,1);
+        @include adaptive-value(padding-bottom,33,24,1);
+    }
+    &__card{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding-bottom: 70px;
+    }
+}

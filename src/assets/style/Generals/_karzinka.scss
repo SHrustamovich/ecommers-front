@@ -1,0 +1,189 @@
+.karzinka-main {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width:960px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+    @include adaptive-value(padding-bottom,70,24,1);
+}
+.karzinka-page {
+    padding-top: 30px;
+    &__total {
+        @include adaptive-value(padding-top, 30, 15, 1);
+        font-weight: 600;
+        @include adaptive-value(font-size, 26, 18, 1);
+        @include adaptive-value(line-height, 39, 26, 1);
+    }
+}
+.karzinka-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.karzinka-card {
+    position: relative;
+    display: flex;
+    background: #ffffff;
+    gap: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 5px;
+    &__img {
+        background: #ebebeb;
+        border-radius: 10px;
+        width: 91px;
+        height: 81px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__name {
+        font-weight: 600;
+        @include adaptive-value(font-size, 16, 12, 1);
+        @include adaptive-value(line-height, 24, 20, 1);
+    }
+    &__counter {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #27376f;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    &__price {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        div {
+            display: flex;
+            gap: 14px;
+            p {
+                font-weight: 500;
+                @include adaptive-value(font-size, 18, 12, 1);
+                @include adaptive-value(line-height, 27, 20, 1);
+                color: #3c3c3c;
+            }
+            span {
+                font-weight: 700;
+                @include adaptive-value(font-size, 18, 12, 1);
+                @include adaptive-value(line-height, 27, 20, 1);
+            }
+        }
+    }
+    &__btn {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        right: 7px;
+        top: 7px;
+        color: #fff;
+        background: #a5a5a5;
+        cursor: pointer;
+        &:hover {
+            background: #fff;
+            color: #a5a5a5;
+        }
+    }
+}
+.orderCard {
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    @include adaptive-value(padding-block, 23, 16, 1);
+    @include adaptive-value(padding-inline, 16, 10, 1);
+    display: inline-block;
+    @media (max-width:960px) {
+        display: inline-block;
+        @include adaptive-value(margin-block,30,18,1);
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        p {
+            font-weight: 600;
+            @include adaptive-value(font-size, 22, 12, 1);
+            @include adaptive-value(line-height, 33, 20, 1);
+        }
+        span {
+            font-weight: 700;
+            @include adaptive-value(font-size, 22, 12, 1);
+            @include adaptive-value(line-height, 33, 20, 1);
+        }
+    }
+    &__info {
+        padding-top: 14px;
+        gap: 6px;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            @include adaptive-value(font-size, 16, 12, 1);
+            @include adaptive-value(line-height, 24, 20, 1);
+            &:last-child {
+                border-top: 1px solid #d9d9d9;
+                @include adaptive-value(padding-top, 18, 12, 1);
+            }
+            &:nth-child(3) {
+                @include adaptive-value(padding-bottom, 16, 12, 1);
+            }
+            span {
+                color: #888888;
+            }
+        }
+    }
+    &__error {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        @include adaptive-value(padding-top, 20, 12, 1);
+    }
+    &__btn {
+        @include adaptive-value(padding-top, 18, 12, 1);
+        @media (max-width:960px) {
+            text-align: center;
+        }
+        button {
+            background: #27376f;
+            border-radius: 10px;
+            font-weight: 600;
+            @include adaptive-value(font-size, 16, 12, 1);
+            @include adaptive-value(line-height, 24, 20, 1);
+            text-align: center;
+            color: #fff;
+            @include adaptive-value(padding-block, 10, 12, 1);
+            @include adaptive-value(padding-inline, 130, 70, 1);
+            cursor: pointer;
+            &:hover {
+                background: #717ca6;
+            }
+        }
+    }
+    &__text {
+        @include adaptiveWith(400);
+        font-weight: 400;
+        @include adaptive-value(font-size, 14, 10, 1);
+        @include adaptive-value(line-height, 21, 16, 1);
+        @include adaptive-value(padding-top, 17, 10, 1);
+        text-align: center;
+        color: #888888;
+        display: inline-block;
+        @media (max-width:567px) {
+            display: inline;
+        }
+    }
+}

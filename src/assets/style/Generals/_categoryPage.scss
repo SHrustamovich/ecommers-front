@@ -1,0 +1,42 @@
+.category-top {
+    @include adaptive-value(padding-top, 25, 20, 1);
+    &__path {
+        p {
+            font-weight: 400;
+            @include adaptive-value(font-size,14,12,1);
+            @include adaptive-value(line-height,21,12,1);
+            color: #767676;
+        }
+    }
+    &__name {
+        display: flex;
+        align-items: center;
+        @include adaptive-value(padding-top, 25, 20, 1);
+        p {
+            font-weight: 600;
+            @include adaptive-value(font-size,26,22,1);
+            @include adaptive-value(line-height,39,24,1);
+            color: #3C3C3C;
+        }
+        span{
+            font-weight: 400;
+            @include adaptive-value(font-size,14,12,1);
+            @include adaptive-value(line-height,21,18,1);
+            color: #797979;
+            padding-left: 14px;
+        }
+    }
+    &__brand{
+        display: flex;
+        gap: 12px;
+        padding-top: 13px;
+        span{
+            background: #F0F0F0;
+            border-radius: 6px;
+            @include adaptive-value(padding-block,6,4,1);
+            @include adaptive-value(padding-inline,19,8,1);
+            @include adaptive-value(font-size,12,10,1);
+            @include adaptive-value(line-height,18,16,1);
+        }
+    }
+}
